@@ -1754,6 +1754,7 @@ pre .javascript .function {
 .post-copyright {
   margin: 2em 0 0;
   padding: 0.5em 1em;
+  text-align: left;
   border-left: 3px solid #ff1700;
   background-color: #f9f9f9;
   list-style: none;
@@ -2004,7 +2005,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff73ac;
+  background: #188725;
 }
 .links-of-blogroll {
   font-size: 13px;
