@@ -37,5 +37,25 @@
 <p>Spring MVC中xml文件部分配置<br><img src="https://img-blog.csdnimg.cn/20200712210111403.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0ODY2MTY5,size_16,color_FFFFFF,t_70" alt="Spring MVC中xml文件配置"></p>
 <p>struts2中xml文件部分配置<br><img src="https://img-blog.csdnimg.cn/20200712210135516.jpg" alt="struts2中xml文件配置"></p>
 ]]></content>
+      <tags>
+        <tag>SpringMVC</tag>
+        <tag>Struts2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SpringMVC的请求响应流程</title>
+    <url>/2020/07/13/SpringMVC%E7%9A%84%E8%AF%B7%E6%B1%82%E5%93%8D%E5%BA%94%E7%9A%84%E7%AE%80%E6%98%93%E6%B5%81%E7%A8%8B/</url>
+    <content><![CDATA[<h2 id="SpringMVC的请求响应流程"><a href="#SpringMVC的请求响应流程" class="headerlink" title="SpringMVC的请求响应流程"></a>SpringMVC的请求响应流程</h2><ol>
+<li>服务器启动，应用被加载。读取到web.xml中的配置创建spring容器并且初始化容器中的对象。</li>
+<li>浏览器发送请求，被DispatherServlet捕获，该Servlet并不处理请求，而是把请求转发出去。转发的路径是根据请求URL，匹配@RequestMapping中的内容。</li>
+<li>匹配到了后，执行对应的方法。该方法有个返回值。</li>
+<li>根据方法的返回值，借助InternalResourceViewResolver找到对应的结果视图。</li>
+<li>渲染结果视图，响应浏览器。<img src="https://img-blog.csdnimg.cn/20200713194451845.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0ODY2MTY5,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></li>
+</ol>
+<h2 id="详细响应流程图"><a href="#详细响应流程图" class="headerlink" title="详细响应流程图"></a>详细响应流程图</h2><p><img src="https://img-blog.csdnimg.cn/20200713194629540.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0ODY2MTY5,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+]]></content>
+      <tags>
+        <tag>SpringMVC</tag>
+      </tags>
   </entry>
 </search>
