@@ -58,4 +58,40 @@
         <tag>SpringMVC</tag>
       </tags>
   </entry>
+  <entry>
+    <title>SpringMVC数据流程绑定分析</title>
+    <url>/2020/07/14/SpringMVC%E6%95%B0%E6%8D%AE%E6%B5%81%E7%A8%8B%E7%BB%91%E5%AE%9A%E5%88%86%E6%9E%90/</url>
+    <content><![CDATA[<blockquote>
+<p>提问：<strong>前端表单传递过来的数据为什么能够自动的封装成实体类的对象？为什么能够进行自动的类型转换？</strong></p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20200714191129643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0ODY2MTY5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="数据绑定流程"><a href="#数据绑定流程" class="headerlink" title="数据绑定流程"></a>数据绑定流程</h2><ol>
+<li>SpringMVC框架将ServletRequest对象及目标方法的入参实例传递给WebDataBinderFactory实例，以便创建DataBinder对象。</li>
+<li>DataBinder调用装配在SpringMVC上下文的ConversionService组件进行数据类型的转换和数据类型格式化操作，将ServletRequest请求参数绑定到对应目标方法的入参对象中。</li>
+<li>调用Validator组件对已经绑定到了目标方法入参对象进行数据合法性的校验，并最终形成数据绑定的结果到BindingData对象。</li>
+<li>SpringMVC将数据校验、格式化、转换的错误信息封装到BindingResult对象中。</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>SpringMVC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SpringMVC请求参数绑定</title>
+    <url>/2020/07/14/SpringMVC%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E7%BB%91%E5%AE%9A/</url>
+    <content><![CDATA[<h2 id="一、支持的数据类型"><a href="#一、支持的数据类型" class="headerlink" title="一、支持的数据类型"></a>一、支持的数据类型</h2><p> <strong>1. 基本类型参数</strong></p>
+<pre><code>包括基本类型和String类型</code></pre><p> <strong>2. POJO类型参数</strong></p>
+<pre><code>包括实体类，以及关联的实体类</code></pre><p> <strong>3. 数组和集合类型参数</strong></p>
+<pre><code>包括List结构和Map结构的集合（包括数组）</code></pre><h2 id="二、使用要求"><a href="#二、使用要求" class="headerlink" title="二、使用要求"></a>二、使用要求</h2><p><strong>1. 如果是基本数据类型或者String类型：</strong></p>
+<p>要求我们的参数名称必须和控制器中的方法的形参名称保持一致。（严格区分大小写）<br><img src="https://img-blog.csdnimg.cn/20200713211632436.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0ODY2MTY5,size_16,color_FFFFFF,t_70#pic_left" alt="在这里插入图片描述"></p>
+<p> <strong>2. 如果是POJO类型，或者它的关联对象：</strong></p>
+<p>要求表单中的参数名称和POJO类的属性名称保持一致。并且控制器方法中的参数类型是POJO类型。</p>
+<p><img src="https://img-blog.csdnimg.cn/20200713211819146.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0ODY2MTY5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">)<img src="https://img-blog.csdnimg.cn/2020071321195290.jpg#pic_left" alt="在这里插入图片描述"></p>
+<p> <strong>3. 如果是集合类型：</strong></p>
+<p>要求集合类型的请求参数必须在 POJO 中。在表单中请求参数名称要和 POJO 中集合属性名称相同。<br>给 List 集合中的元素赋值，使用下标。<br>给 Map 集合中的元素赋值，使用键值对。<br><img src="https://img-blog.csdnimg.cn/20200713212036265.jpg#pic_left" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200713212122351.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0ODY2MTY5,size_16,color_FFFFFF,t_70#pic_left" alt="在这里插入图片描述"></p>
+]]></content>
+      <tags>
+        <tag>SpringMVC</tag>
+      </tags>
+  </entry>
 </search>
